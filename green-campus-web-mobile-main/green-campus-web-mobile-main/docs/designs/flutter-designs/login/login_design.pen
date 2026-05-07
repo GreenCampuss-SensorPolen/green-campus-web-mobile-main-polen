@@ -1,0 +1,427 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "1X1ZZ",
+      "x": 0,
+      "y": 0,
+      "name": "Login Screen",
+      "width": 360,
+      "height": 740,
+      "fill": "$--bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "nYPux",
+          "name": "SafeArea",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "J0a0q",
+              "name": "SingleChildScrollView",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "padding": [
+                60,
+                24,
+                40,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "CEiN4",
+                  "name": "LogoSection",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pfRej",
+                      "name": "LogoContainer",
+                      "width": 72,
+                      "height": 72,
+                      "fill": "$--accent-green",
+                      "cornerRadius": 36,
+                      "layout": "vertical",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "ixA5j",
+                          "name": "logoIcon",
+                          "width": 36,
+                          "height": 36,
+                          "iconFontName": "leaf",
+                          "iconFontFamily": "lucide",
+                          "fill": "$--white"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "b0JZM",
+                      "name": "LogoTitle",
+                      "fill": "$--text-primary",
+                      "content": "Green Campus",
+                      "fontFamily": "Plus Jakarta Sans",
+                      "fontSize": 24,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hxU4D",
+                      "name": "LogoSubtitle",
+                      "fill": "$--text-secondary",
+                      "content": "Inicia sesión en tu cuenta",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mjrqc",
+                  "name": "Spacer",
+                  "width": "fill_container",
+                  "height": 40
+                },
+                {
+                  "type": "frame",
+                  "id": "oC9XS",
+                  "name": "Form",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 20,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BDf6P",
+                      "name": "email_input",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "vPdaa",
+                          "name": "emailLabel",
+                          "fill": "$--text-primary",
+                          "content": "Correo electrónico",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "9q9QV",
+                          "name": "emailInputFrame",
+                          "width": "fill_container",
+                          "height": 48,
+                          "fill": "$--white",
+                          "cornerRadius": "$--radius-input",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1.5,
+                            "fill": "$--border-standard"
+                          },
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            14
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "ZMT9R",
+                              "name": "emailIcon",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "mail",
+                              "iconFontFamily": "lucide",
+                              "fill": "$--accent-green"
+                            },
+                            {
+                              "type": "text",
+                              "id": "HLpto",
+                              "name": "emailPlaceholder",
+                              "fill": "$--text-tertiary",
+                              "content": "usuario@greencampus.edu",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "AhKIk",
+                          "name": "emailHint",
+                          "fill": "$--text-secondary",
+                          "content": "Ingresa tu correo institucional",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "C4RzL",
+                      "name": "password_input",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 6,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JULiF",
+                          "name": "pwdLabel",
+                          "fill": "$--text-primary",
+                          "content": "Contraseña",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "fzT6U",
+                          "name": "pwdInputFrame",
+                          "width": "fill_container",
+                          "height": 48,
+                          "fill": "$--white",
+                          "cornerRadius": "$--radius-input",
+                          "stroke": {
+                            "align": "inside",
+                            "thickness": 1.5,
+                            "fill": "$--border-standard"
+                          },
+                          "gap": 10,
+                          "padding": [
+                            0,
+                            14
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon_font",
+                              "id": "0204X",
+                              "name": "pwdIcon",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "lock",
+                              "iconFontFamily": "lucide",
+                              "fill": "$--accent-green"
+                            },
+                            {
+                              "type": "text",
+                              "id": "B1Adu",
+                              "name": "pwdPlaceholder",
+                              "fill": "$--text-tertiary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "••••••••",
+                              "fontFamily": "Inter",
+                              "fontSize": 18,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "icon_font",
+                              "id": "rSDRY",
+                              "name": "pwdEyeIcon",
+                              "width": 20,
+                              "height": 20,
+                              "iconFontName": "eye-off",
+                              "iconFontFamily": "lucide",
+                              "fill": "$--text-tertiary"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "DUwGD",
+                          "name": "pwdHint",
+                          "fill": "$--text-secondary",
+                          "content": "Mínimo 8 caracteres",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EUqjp",
+                      "name": "ForgotPasswordWrapper",
+                      "width": "fill_container",
+                      "padding": [
+                        4,
+                        0
+                      ],
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IG4Tk",
+                          "name": "forgot_password_link",
+                          "fill": "$--accent-green-dark",
+                          "content": "¿Olvidaste tu contraseña?",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EHSxR",
+                      "name": "ButtonSpacer",
+                      "width": "fill_container",
+                      "height": 12
+                    },
+                    {
+                      "type": "frame",
+                      "id": "TCN8U",
+                      "name": "login_submit_btn",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$--accent-green",
+                      "cornerRadius": "$--radius-input",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "UHEBp",
+                          "name": "loginBtnText",
+                          "fill": "$--white",
+                          "content": "Iniciar Sesión",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "--accent-green": {
+      "type": "color",
+      "value": "#22C55E"
+    },
+    "--accent-green-dark": {
+      "type": "color",
+      "value": "#16A34A"
+    },
+    "--accent-green-soft": {
+      "type": "color",
+      "value": "#22C55E20"
+    },
+    "--accent-red": {
+      "type": "color",
+      "value": "#EF4444"
+    },
+    "--accent-red-soft": {
+      "type": "color",
+      "value": "#EF444420"
+    },
+    "--bg-card": {
+      "type": "color",
+      "value": "#F4F4F5"
+    },
+    "--bg-elevated": {
+      "type": "color",
+      "value": "#E4E4E7"
+    },
+    "--bg-page": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--border-active": {
+      "type": "color",
+      "value": "#22C55E"
+    },
+    "--border-error": {
+      "type": "color",
+      "value": "#EF4444"
+    },
+    "--border-standard": {
+      "type": "color",
+      "value": "#D4D4D8"
+    },
+    "--font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "--font-display": {
+      "type": "string",
+      "value": "Plus Jakarta Sans"
+    },
+    "--radius-card": {
+      "type": "number",
+      "value": 12
+    },
+    "--radius-input": {
+      "type": "number",
+      "value": 8
+    },
+    "--spacing-2xl": {
+      "type": "number",
+      "value": 24
+    },
+    "--spacing-lg": {
+      "type": "number",
+      "value": 12
+    },
+    "--spacing-md": {
+      "type": "number",
+      "value": 8
+    },
+    "--spacing-sm": {
+      "type": "number",
+      "value": 4
+    },
+    "--spacing-xl": {
+      "type": "number",
+      "value": 16
+    },
+    "--text-muted": {
+      "type": "color",
+      "value": "#D4D4D8"
+    },
+    "--text-primary": {
+      "type": "color",
+      "value": "#18181B"
+    },
+    "--text-secondary": {
+      "type": "color",
+      "value": "#71717A"
+    },
+    "--text-tertiary": {
+      "type": "color",
+      "value": "#A1A1AA"
+    },
+    "--white": {
+      "type": "color",
+      "value": "#FFFFFF"
+    }
+  }
+}

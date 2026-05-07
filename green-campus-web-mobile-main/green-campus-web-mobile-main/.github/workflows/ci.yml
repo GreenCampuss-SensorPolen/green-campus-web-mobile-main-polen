@@ -1,0 +1,67 @@
+name: Continuous Integration (CI)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  flutter-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.38.7"
+
+      - name: Verify Flutter installation
+        run: flutter doctor
+
+      - name: Install Flutter dependencies
+        run: |
+          cd mobile
+          flutter pub get
+
+      - name: Run Flutter tests
+        run: |
+          cd mobile
+          flutter test
+
+      - name: Run Flutter code analysis
+        run: |
+          cd mobile
+          flutter analyze
+
+  angular-build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: web
+
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install Angular dependencies
+        run: npm ci
+
+  check-status:
+    needs: [flutter-build, angular-build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check all tests passed
+        run: echo "Todos los tests han pasado. Ya puedes hacer merge."
+

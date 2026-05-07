@@ -1,0 +1,1006 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "YztQc",
+      "x": 0,
+      "y": 0,
+      "name": "Dashboard Técnico · Green Campus",
+      "clip": true,
+      "width": 390,
+      "fill": "$--bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "EG23N",
+          "name": "status_bar",
+          "width": "fill_container",
+          "height": 44,
+          "fill": "$--bg-page",
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "DD7KR",
+              "name": "statusTime",
+              "fill": "$--text-primary",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "wpmPp",
+              "name": "statusIcons",
+              "gap": 5,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "1vj6O",
+                  "name": "wifiIcon",
+                  "width": 15,
+                  "height": 15,
+                  "iconFontName": "wifi",
+                  "iconFontFamily": "lucide",
+                  "fill": "$--text-primary"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "PmJDU",
+                  "name": "battIcon",
+                  "width": 20,
+                  "height": 14,
+                  "iconFontName": "battery",
+                  "iconFontFamily": "lucide",
+                  "fill": "$--text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "oGWND",
+          "name": "main_header",
+          "width": "fill_container",
+          "height": 60,
+          "fill": "$--bg-page",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "$--border"
+          },
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon_font",
+              "id": "j7BUl",
+              "name": "menuBtn",
+              "width": 24,
+              "height": 24,
+              "iconFontName": "menu",
+              "iconFontFamily": "lucide",
+              "fill": "$--text-primary"
+            },
+            {
+              "type": "frame",
+              "id": "xTyT1",
+              "name": "headerCenter",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AWNdV",
+                  "name": "logoBox",
+                  "width": 30,
+                  "height": 30,
+                  "fill": "$--accent-green",
+                  "cornerRadius": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "vmiPC",
+                      "name": "leafIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "leaf",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "9aL11",
+                  "name": "headerTitle",
+                  "fill": "$--text-primary",
+                  "content": "Green Campus",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Du3Ho",
+              "name": "user_profile_group",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VUAor",
+                  "name": "usernameText",
+                  "fill": "$--text-secondary",
+                  "content": "Ing. García ▾",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "R4xgP",
+                  "name": "user_avatar",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "silverkblack",
+                    "link": "https://unsplash.com/@silverkblack",
+                    "author": "Vitaly Gariev"
+                  },
+                  "width": 32,
+                  "height": 32,
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1758598497190-f609ecba227b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE1ODMzMzB8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  },
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$--border"
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "SuRmD",
+                      "name": "avatarFallback",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "user",
+                      "iconFontFamily": "lucide",
+                      "fill": "$--text-muted"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "iYCio",
+          "name": "content_scroll",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            20,
+            16,
+            40,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "w1V0q",
+              "name": "sh1",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kUgGJ",
+                  "name": "sh1Label",
+                  "fill": "$--text-muted",
+                  "content": "RESUMEN DE INFRAESTRUCTURA",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "h0R4E",
+                  "name": "sh1Sub",
+                  "fill": "$--text-muted",
+                  "content": "hace 30s",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YS4FL",
+              "name": "infra_stats",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "6gJBn",
+                  "name": "c1",
+                  "width": "fill_container",
+                  "fill": "$--card-bg",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$--border"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "1NFUQ",
+                      "name": "c1Icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "cpu",
+                      "iconFontFamily": "lucide",
+                      "fill": "$--text-muted"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZPfUM",
+                      "name": "c1Val",
+                      "fill": "$--text-primary",
+                      "content": "42",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 26,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IgpCr",
+                      "name": "c1Lab",
+                      "fill": "$--text-secondary",
+                      "content": "Nodos Total",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ah9UN",
+                  "name": "c2",
+                  "width": "fill_container",
+                  "fill": "$--status-online-bg",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "$--accent-green-light"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "n9py7",
+                      "name": "c2Icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "activity",
+                      "iconFontFamily": "lucide",
+                      "fill": "$--accent-green"
+                    },
+                    {
+                      "type": "text",
+                      "id": "md8aI",
+                      "name": "c2Val",
+                      "fill": "$--accent-green",
+                      "content": "38",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 26,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fAGDW",
+                      "name": "c2Lab",
+                      "fill": "$--text-secondary",
+                      "content": "En Línea",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "evMom",
+                  "name": "c3",
+                  "width": "fill_container",
+                  "fill": "$--status-warning-bg",
+                  "cornerRadius": 12,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#FED7AA"
+                  },
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 14,
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "0Jjnb",
+                      "name": "c3Icon",
+                      "width": 20,
+                      "height": 20,
+                      "iconFontName": "triangle-alert",
+                      "iconFontFamily": "lucide",
+                      "fill": "$--status-warning"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dAsnf",
+                      "name": "c3Val",
+                      "fill": "$--status-warning",
+                      "content": "2",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 26,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "x0hpT",
+                      "name": "c3Lab",
+                      "fill": "$--text-secondary",
+                      "content": "Alertas",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "m5c0l",
+              "name": "sh2",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WeTPA",
+                  "name": "sh2Label",
+                  "fill": "$--text-muted",
+                  "content": "SENSORES EN TIEMPO REAL",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "frame",
+                  "id": "kXWuO",
+                  "name": "refreshChip",
+                  "fill": "$--accent-green-light",
+                  "cornerRadius": 20,
+                  "gap": 4,
+                  "padding": [
+                    3,
+                    8
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MCIaq",
+                      "name": "refreshLabel",
+                      "fill": "$--accent-green",
+                      "content": "↻ 30s auto-refresh",
+                      "fontFamily": "JetBrains Mono",
+                      "fontSize": 9,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "8v3Zx",
+              "name": "real_time_sensors",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "rYRvy",
+                  "name": "row1",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "G9ylo",
+                      "name": "tCard",
+                      "width": "fill_container",
+                      "fill": "$--card-bg",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$--border"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "TinbZ",
+                          "name": "tIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "thermometer",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F59E0B"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1O1Rt",
+                          "name": "tVal",
+                          "fill": "$--text-primary",
+                          "content": "24.5°C",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "yYhah",
+                          "name": "tLab",
+                          "fill": "$--text-muted",
+                          "content": "Temperatura",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "HUJvf",
+                      "name": "hCard",
+                      "width": "fill_container",
+                      "fill": "$--card-bg",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$--border"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "hWtHN",
+                          "name": "hIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "droplets",
+                          "iconFontFamily": "lucide",
+                          "fill": "#3B82F6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AaQZs",
+                          "name": "hVal",
+                          "fill": "$--text-primary",
+                          "content": "68%",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 20,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "CT3QZ",
+                          "name": "hLab",
+                          "fill": "$--text-muted",
+                          "content": "Humedad",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XJPbZ",
+                  "name": "row2",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "c1lvb",
+                      "name": "co2Card",
+                      "width": "fill_container",
+                      "fill": "$--card-bg",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$--border"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "pZnqZ",
+                          "name": "co2Icon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "wind",
+                          "iconFontFamily": "lucide",
+                          "fill": "#8B5CF6"
+                        },
+                        {
+                          "type": "text",
+                          "id": "C8Fxq",
+                          "name": "co2Val",
+                          "fill": "$--text-primary",
+                          "content": "420 ppm",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 19,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Tb4EF",
+                          "name": "co2Lab",
+                          "fill": "$--text-muted",
+                          "content": "CO₂ Ambiente",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Oe7ut",
+                      "name": "energyCard",
+                      "width": "fill_container",
+                      "fill": "$--card-bg",
+                      "cornerRadius": 12,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "$--border"
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 14,
+                      "children": [
+                        {
+                          "type": "icon_font",
+                          "id": "Vx6mA",
+                          "name": "energyIcon",
+                          "width": 18,
+                          "height": 18,
+                          "iconFontName": "zap",
+                          "iconFontFamily": "lucide",
+                          "fill": "#F59E0B"
+                        },
+                        {
+                          "type": "text",
+                          "id": "11UY8",
+                          "name": "energyVal",
+                          "fill": "$--text-primary",
+                          "content": "2.4 kWh",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 19,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ft3L9",
+                          "name": "energyLab",
+                          "fill": "$--text-muted",
+                          "content": "Energía",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qr9ot",
+              "name": "sh3",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WNfoA",
+                  "name": "sh3Label",
+                  "fill": "$--text-muted",
+                  "content": "INVENTARIO DE DISPOSITIVOS",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 10,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                },
+                {
+                  "type": "text",
+                  "id": "m6Rcf",
+                  "name": "sh3Count",
+                  "fill": "$--text-muted",
+                  "content": "4 nodos",
+                  "fontFamily": "JetBrains Mono",
+                  "fontSize": 9,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ACRQD",
+              "name": "device_inventory",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "cornerRadius": 12,
+              "stroke": {
+                "align": "inside",
+                "thickness": 1,
+                "fill": "$--border"
+              },
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "cHXYw",
+                  "name": "n1row",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$--border-light"
+                  },
+                  "gap": 12,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "SKNcw",
+                      "name": "n1dot",
+                      "width": 9,
+                      "height": 9,
+                      "fill": "$--accent-green",
+                      "cornerRadius": 5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xJwAX",
+                      "name": "n1info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "3I483",
+                          "name": "n1name",
+                          "fill": "$--text-primary",
+                          "content": "RPI-01 · Sala Servidores",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "tw3zM",
+                          "name": "n1sub",
+                          "fill": "$--text-muted",
+                          "content": "Raspberry Pi 4B  ·  Online  ·  🔋 85%",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bNdQp",
+                  "name": "n2row",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$--border-light"
+                  },
+                  "gap": 12,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "if1BO",
+                      "name": "n2dot",
+                      "width": 9,
+                      "height": 9,
+                      "fill": "#F59E0B",
+                      "cornerRadius": 5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cjx02",
+                      "name": "n2info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AHy2p",
+                          "name": "n2name",
+                          "fill": "$--text-primary",
+                          "content": "ARD-07 · Aula 203",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1yj8M",
+                          "name": "n2sub",
+                          "fill": "$--text-muted",
+                          "content": "Arduino Mega 2560  ·  Online  ·  🔋 42%",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Yq2kz",
+                  "name": "n3row",
+                  "width": "fill_container",
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": {
+                      "bottom": 1
+                    },
+                    "fill": "$--border-light"
+                  },
+                  "gap": 12,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "M0Oqp",
+                      "name": "n3dot",
+                      "width": 9,
+                      "height": 9,
+                      "fill": "$--status-offline",
+                      "cornerRadius": 5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "rtrtC",
+                      "name": "n3info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "dof7g",
+                          "name": "n3name",
+                          "fill": "$--text-primary",
+                          "content": "RPI-03 · Techo Campus",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "d9zo2",
+                          "name": "n3sub",
+                          "fill": "$--status-offline",
+                          "content": "Raspberry Pi Zero  ·  OFFLINE  ·  🔋 12%",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BljV5",
+                  "name": "n4row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": [
+                    14,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Vmp9n",
+                      "name": "n4dot",
+                      "width": 9,
+                      "height": 9,
+                      "fill": "$--accent-green",
+                      "cornerRadius": 5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xEFAz",
+                      "name": "n4info",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "0AJgl",
+                          "name": "n4name",
+                          "fill": "$--text-primary",
+                          "content": "ARD-12 · Cafetería",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1gb6h",
+                          "name": "n4sub",
+                          "fill": "$--text-muted",
+                          "content": "Arduino Nano  ·  Online  ·  🔋 91%",
+                          "fontFamily": "JetBrains Mono",
+                          "fontSize": 10,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "--accent-green": {
+      "type": "color",
+      "value": "#22C55E"
+    },
+    "--accent-green-light": {
+      "type": "color",
+      "value": "#DCFCE7"
+    },
+    "--bg-page": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "--border": {
+      "type": "color",
+      "value": "#E2E8F0"
+    },
+    "--border-light": {
+      "type": "color",
+      "value": "#F1F5F9"
+    },
+    "--card-bg": {
+      "type": "color",
+      "value": "#F8FAFC"
+    },
+    "--status-offline": {
+      "type": "color",
+      "value": "#EF4444"
+    },
+    "--status-online-bg": {
+      "type": "color",
+      "value": "#F0FDF4"
+    },
+    "--status-warning": {
+      "type": "color",
+      "value": "#F59E0B"
+    },
+    "--status-warning-bg": {
+      "type": "color",
+      "value": "#FFF7ED"
+    },
+    "--text-muted": {
+      "type": "color",
+      "value": "#94A3B8"
+    },
+    "--text-primary": {
+      "type": "color",
+      "value": "#1A1A1A"
+    },
+    "--text-secondary": {
+      "type": "color",
+      "value": "#64748B"
+    }
+  }
+}
