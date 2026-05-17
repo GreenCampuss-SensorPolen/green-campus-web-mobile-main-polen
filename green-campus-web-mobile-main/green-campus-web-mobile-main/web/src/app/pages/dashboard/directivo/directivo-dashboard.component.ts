@@ -1,7 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
 import { AppSidebarComponent } from '../../../shared/components/app-sidebar/app-sidebar.component';
+import { FacilityManagementService } from '../../../data/services/facility-management.service';
+import { DailyPrediction } from '../../../data/models/directivo-data.model';
 
 @Component({
   selector: 'app-directivo-dashboard',
@@ -17,72 +19,152 @@ import { AppSidebarComponent } from '../../../shared/components/app-sidebar/app-
       <div class="flex-1 flex flex-col overflow-hidden">
         <app-header (menuToggle)="sidebarOpen.set(!sidebarOpen())" />
 
-        <main class="flex-1 overflow-y-auto flex items-center justify-center p-8">
-          <div class="text-center max-w-md">
-            <!-- Construction illustration -->
-            <div class="w-24 h-24 bg-yellow-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-              </svg>
+        <main class="flex-1 overflow-y-auto p-8">
+          
+          <div class="mb-8 flex justify-between items-center">
+            <div>
+              <h1 class="text-3xl font-bold text-text-primary mb-2">Panel Directivo: Calidad del Aire AI</h1>
+              <p class="text-text-secondary">Predicción inteligente multivariable (Próximos 7 días)</p>
             </div>
+          </div>
 
-            <h1 class="text-2xl font-bold text-text-primary mb-3">Panel Directivo</h1>
-            <p class="text-text-secondary mb-2">Esta sección está en construcción.</p>
-            <p class="text-sm text-text-muted mb-8">
-              Próximamente dispondrá de reportes ejecutivos, métricas de sostenibilidad y análisis de tendencias para la toma de decisiones estratégicas.
-            </p>
-
-            <!-- Feature preview cards -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
-              @for (feature of features; track feature.title) {
-                <div class="card p-4 opacity-60">
-                  <div class="flex items-center gap-2 mb-2">
-                    <div class="w-7 h-7 rounded-lg bg-accent-green-light flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="feature.icon"/>
+          @if (prediccionesSemanales().length === 0) {
+            <div class="flex justify-center items-center h-64">
+              <div class="animate-pulse flex flex-col items-center">
+                <div class="w-12 h-12 border-4 border-accent-green border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p class="text-text-muted">La IA está calculando el pronóstico...</p>
+              </div>
+            </div>
+          } @else {
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+              @for (dia of prediccionesSemanales(); track dia.target_date) {
+                
+                <div (click)="seleccionarDia(dia)" 
+                     class="card p-6 bg-white rounded-xl shadow-sm border transition-all duration-200 cursor-pointer hover:shadow-md hover:border-accent-green group"
+                     [ngClass]="{'border-accent-green ring-2 ring-accent-green-light': diaSeleccionado()?.target_date === dia.target_date, 'border-gray-100': diaSeleccionado()?.target_date !== dia.target_date}">
+                  
+                  <div class="flex justify-between items-start mb-4">
+                    <div>
+                      <p class="text-sm font-semibold text-text-muted uppercase tracking-wider group-hover:text-accent-green transition-colors">{{ dia.target_date | date:'mediumDate' }}</p>
+                      <p class="text-xs mt-1 px-2 py-1 bg-gray-100 rounded-md inline-block font-medium" 
+                         [ngClass]="{'bg-green-100 text-green-700': dia.day_type === 'Fin de semana', 'bg-blue-100 text-blue-700': dia.day_type !== 'Fin de semana'}">
+                        {{ dia.day_type }}
+                      </p>
+                    </div>
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center transition-colors"
+                         [ngClass]="dia.daily_average > 800 ? 'bg-red-100 text-red-500' : 'bg-green-100 text-green-500'">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                       </svg>
                     </div>
-                    <span class="text-xs font-semibold text-text-primary">{{ feature.title }}</span>
                   </div>
-                  <p class="text-xs text-text-muted">{{ feature.description }}</p>
+                  
+                  <div class="flex flex-col gap-3">
+                    <div>
+                      <span class="text-xs text-text-muted block">CO₂ Promedio</span>
+                      <p class="text-3xl font-bold text-text-primary">
+                        {{ dia.daily_average }} <span class="text-sm font-normal text-text-muted">ppm</span>
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-orange-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                      <span class="font-bold text-lg">{{ dia.temperature_average }} °C</span>
+                    </div>
+                  </div>
+                  
+                  <div class="mt-4 pt-3 border-t border-gray-50 flex justify-between items-center">
+                    <p class="text-xs font-semibold uppercase tracking-wider" [ngClass]="dia.daily_average > 800 ? 'text-red-600' : 'text-green-600'">
+                      {{ dia.daily_average > 800 ? '⚠️ Ventilar' : '✅ Óptimo' }}
+                    </p>
+                    <span class="text-xs text-text-muted group-hover:text-accent-green font-medium flex items-center gap-0.5">
+                      Detalle horaria →
+                    </span>
+                  </div>
                 </div>
+
               }
             </div>
 
-            <div class="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-yellow-50 border border-yellow-200 rounded-full">
-              <div class="w-2 h-2 rounded-full bg-yellow-400"></div>
-              <span class="text-xs text-yellow-700 font-medium">En desarrollo</span>
-            </div>
-          </div>
+            @if (diaSeleccionado(); as seleccionado) {
+              <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm animate-fadeIn">
+                <div class="flex justify-between items-center border-b border-gray-100 pb-4 mb-6">
+                  <div>
+                    <h2 class="text-xl font-bold text-text-primary">Curva Horaria de Predicción</h2>
+                    <p class="text-sm text-text-secondary">Evolución estimada para el {{ seleccionado.target_date | date:'longDate' }}</p>
+                  </div>
+                  <button (click)="cerrarDetalle()" class="px-3 py-1.5 text-xs font-semibold text-gray-500 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                    Cerrar detalle ×
+                  </button>
+                </div>
+
+                <div class="flex gap-4 overflow-x-auto pb-4 pt-2 scrollbar-thin">
+                  @for (pred of seleccionado.hourly_predictions; track pred.hour) {
+                    
+                    <div class="flex flex-col items-center min-w-[85px] p-4 rounded-xl border border-gray-50 bg-slate-50/50 hover:bg-slate-50 transition-colors">
+                      <span class="text-xs font-bold text-text-muted mb-2">{{ pred.hour }}</span>
+                      
+                      <div class="w-8 h-8 rounded-full flex items-center justify-center mb-3"
+                           [ngClass]="pred.co2 > 800 ? 'bg-red-50 text-red-500' : 'bg-green-50 text-green-500'">
+                        <i class="fa-solid fa-wind text-xs"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M14 12a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                      </div>
+
+                      <div class="text-center">
+                        <span class="text-sm font-extrabold text-text-primary block">{{ pred.co2 }}</span>
+                        <span class="text-[10px] text-text-muted uppercase font-semibold block mb-2">ppm</span>
+                        
+                        <span class="text-xs font-bold text-orange-600 bg-orange-50 px-1.5 py-0.5 rounded-md">{{ pred.temperature }}°C</span>
+                      </div>
+                    </div>
+
+                  }
+                </div>
+              </div>
+            }
+          }
         </main>
       </div>
     </div>
   `,
+  styles: [`
+    .scrollbar-thin::-webkit-scrollbar { height: 6px; }
+    .scrollbar-thin::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+  `]
 })
-export class DirectivoDashboardComponent {
+export class DirectivoDashboardComponent implements OnInit {
   sidebarOpen = signal(false);
+  private facilityService = inject(FacilityManagementService);
 
-  features = [
-    {
-      title: 'Reportes Ejecutivos',
-      description: 'Informes periódicos de consumo energético y calidad ambiental.',
-      icon: 'M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
-    },
-    {
-      title: 'Métricas de Sostenibilidad',
-      description: 'Indicadores clave de rendimiento ambiental del campus.',
-      icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
-    },
-    {
-      title: 'Análisis de Tendencias',
-      description: 'Visualización de datos históricos y predicciones.',
-      icon: 'M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z',
-    },
-    {
-      title: 'Alertas Estratégicas',
-      description: 'Notificaciones críticas para decisiones inmediatas.',
-      icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
-    },
-  ];
+  prediccionesSemanales = signal<DailyPrediction[]>([]);
+  
+  // Nuevo signal para controlar qué día se despliega por horas
+  diaSeleccionado = signal<DailyPrediction | null>(null);
+
+  ngOnInit(): void {
+    this.facilityService.getWeeklyAIPrediction().subscribe({
+      next: (datosIA) => {
+        if (datosIA.week_predictions) {
+          this.prediccionesSemanales.set(datosIA.week_predictions);
+          
+          // Por defecto, dejamos seleccionado el primer día para que no aparezca vacío
+          this.diaSeleccionado.set(datosIA.week_predictions[0]);
+        }
+      },
+      error: (err) => console.error('Error al llamar a la IA', err)
+    });
+  }
+
+  seleccionarDia(dia: DailyPrediction): void {
+    this.diaSeleccionado.set(dia);
+  }
+
+  cerrarDetalle(): void {
+    this.diaSeleccionado.set(null);
+  }
 }

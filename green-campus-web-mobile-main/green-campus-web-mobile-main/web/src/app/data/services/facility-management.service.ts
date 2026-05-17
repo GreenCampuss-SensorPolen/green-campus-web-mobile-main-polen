@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, timeout } from 'rxjs/operators';
 import { APP_CONFIG } from '../../core/config/app-config';
 import { TokenStorageService } from './token-storage.service';
+import { AIPredictionResponse } from '../models/directivo-data.model';
 import {
   HabitabilityStats,
   ZoneConfort,
@@ -19,6 +20,10 @@ export class FacilityManagementService {
   private get headers(): HttpHeaders {
     return new HttpHeaders({ Authorization: `Bearer ${this.tokenStorage.getJwt()}` });
   }
+
+  getWeeklyAIPrediction(): Observable<AIPredictionResponse> {
+  return this.http.get<AIPredictionResponse>(`${this.base}/predictions/week`, { headers: this.headers });
+}
 
   getHabitability(): Observable<HabitabilityStats> {
     return this.http

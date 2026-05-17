@@ -232,6 +232,14 @@ export class FacilityManagementComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loadData();
     this.refreshInterval = setInterval(() => this.loadData(), APP_CONFIG.refreshInterval);
+
+    // 2. Y aquí añadimos nuestra prueba para la IA
+    this.facilityService.getWeeklyAIPrediction().subscribe({
+      next: (datosIA) => {
+        console.log('¡DATOS DE LA IA RECIBIDOS!', datosIA);
+      },
+      error: (err) => console.error('Error al llamar a la IA', err)
+    });
   }
 
   ngOnDestroy(): void {
